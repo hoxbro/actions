@@ -36,7 +36,7 @@ runs:
         echo '```' >> $GITHUB_STEP_SUMMARY
 
         exit $exit_code
-    - if: steps.cache.outputs.cache-hit != 'true'
+    - if: always() && steps.cache.outputs.cache-hit != 'true'
       uses: actions/cache/save@v4
       with:
         path: ~/.cache/pre-commit
