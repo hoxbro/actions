@@ -8,13 +8,10 @@ runs:
       with:
         fetch-depth: "1"
         filter: "blob:none"
-    - uses: astral-sh/setup-uv@v7
-      with:
-        enable-cache: false
+        persist-credentials: false
     - name: Install prek
       shell: bash -e {0}
-      run: |
-        uv tool install prek
+      run: pipx install prek
     - uses: actions/cache/restore@v5
       with:
         path: ~/.cache/prek
